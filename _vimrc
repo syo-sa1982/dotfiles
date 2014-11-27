@@ -27,6 +27,16 @@ NeoBundle 'tpope/vim-fugitive'
 " コメントON/OFFを手軽に実行
 NeoBundle 'tomtom/tcomment_vim'
 
+" http://qiita.com/alpaca_taichou/items/056a4c42fe7a928973e6
+NeoBundle 'mattn/emmet-vim'
+NeoBundle 'taichouchou2/surround.vim'
+NeoBundle 'open-browser.vim'
+NeoBundle 'mattn/webapi-vim'
+NeoBundle 'tell-k/vim-browsereload-mac'
+NeoBundle 'hail2u/vim-css3-syntax'
+NeoBundle 'taichouchou2/html5.vim'
+NeoBundle 'taichouchou2/vim-javascript'
+NeoBundle 'kchmck/vim-coffee-script'
 
 " インデントに色を付けて見やすくする
 NeoBundle 'nathanaelkane/vim-indent-guides'
@@ -45,6 +55,7 @@ NeoBundleCheck
 set number
 set title "ウィンドウのタイトルを書き換える
 set cursorline "カーソル行を強調表示
+set hlsearch
 " 不可視文字を表示する
 set list
 " タブと行の続きを可視化する
@@ -58,14 +69,9 @@ colorscheme desert
 " vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする
 let g:indent_guides_enable_on_vim_startup = 1
 
-
 """"""""""""""""""""""""""""""
-" エンコード
+" 操作周り
 """"""""""""""""""""""""""""""
-set encoding=utf-8
-set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
-set fileformats=unix,dos,mac
-
 "タブ切り替え
 nnoremap <C-Tab> gt
 nnoremap <C-S-Tab> gT
@@ -75,6 +81,15 @@ nnoremap <C-S-Tab> gT
 nnoremap <silent> <Space>ev :<C-u>edit $MYVIMRC<CR>
 nnoremap <silent> <Space>eg :<C-u>tabnew $MYGVIMRC<CR>
 
+"vimのwindowを切り替え
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+
+"コマンドラインWindow
+nnoremap : q:
+autocmd BufNewFile,BufRead *.sub set filetype=html
 """"""""""""""""""""""""""""""
 " 自動的に閉じ括弧を入力
 """"""""""""""""""""""""""""""
@@ -87,3 +102,9 @@ imap ( ()<LEFT>
 filetype plugin indent on     " required!
 filetype indent on
 syntax on
+""""""""""""""""""""""""""""""
+" エンコード
+""""""""""""""""""""""""""""""
+set encoding=utf-8
+set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932,utf-8
+set fileformats=unix,dos,mac
